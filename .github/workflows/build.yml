@@ -15,17 +15,15 @@ jobs:
           distribution: temurin
           java-version: 17
 
-      - uses: gradle/actions/setup-gradle@v3
-      
       - name: Download Gradle 7.6
         run: |
           wget https://services.gradle.org/distributions/gradle-7.6-bin.zip
           unzip -q gradle-7.6-bin.zip
-          
+
       - name: Build
         run: ../gradle-7.6/bin/gradle build --no-daemon
         working-directory: fps-overlay
-        
+
       - uses: actions/upload-artifact@v4
         with:
           name: mod
