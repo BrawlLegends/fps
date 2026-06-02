@@ -17,9 +17,11 @@ jobs:
 
       - uses: gradle/actions/setup-gradle@v3
 
-      - run: gradle build
+      - name: Build
+        run: gradle build
+        working-directory: fps-overlay
 
       - uses: actions/upload-artifact@v4
         with:
           name: mod
-          path: build/libs/*.jar
+          path: fps-overlay/build/libs/*.jar
